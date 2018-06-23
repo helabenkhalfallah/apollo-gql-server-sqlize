@@ -1,2 +1,2 @@
 # apollo-gql-server-sqlize
-Apollo gql server, sqlize, postgress
+Apollo graphql server, graphql, sqlize, postgress
