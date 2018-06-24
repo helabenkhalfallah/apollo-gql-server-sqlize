@@ -80,7 +80,10 @@ yarn add mongoose
 
 -------- Postgres Settings ------------
 14. install sequelize http://docs.sequelizejs.com/manual/installation/getting-started.html
-yarn add sequelize yarn add pg pg-hstore
+
+```js
+yarn add sequelize-cli sequelize pg pg-hstore
+```
 
 15. configure sequelize
 
@@ -101,5 +104,53 @@ Add new model :
 node_modules/.bin/sequelize model:create --name UserEntity --attributes "firstName: string, lastName: string, email: string,birthday: date, job: string, created_at : date, updated_at : date"
 ```
 
+This will generate : a UserEntity file under models folder. a migrations file under migrations folder.
+
+run below command to create table :
+
+```js
+node_modules/.bin/sequelize db:migrate
+```
 
 -------- End Settings ------------
+
+16. From mongoose to psql, things that must changes :
+models
+graphql resolve
+We keep everything else. 
+On UsersList.js file we show an example with mongoose and psql queries :
+
+```js
+// Query with mongoose
+/* export default {
+  type: new GraphQLList(User),
+  resolve() {
+    const users = AppModels.UserModel.find().exec()
+    if (!users) {
+      throw new Error('Error getting users')
+    }
+    return users
+  }
+} */
+
+// Query with psql
+export default {
+  type: new GraphQLList(User),
+  resolve() {
+    return new Promise((resolve, reject) => {
+      PsqlDB.users.findAll().then(users => {
+        // retrieve all users
+        AppLogger.info('PsqlDB findAll users : ' + users)
+        resolve(users)
+      }).catch((error) => {
+        // return error
+        AppLogger.info('PsqlDB findAll error : ' + error)
+        reject(error)
+      })
+    })
+  }
+}
+```
+
+For more details on how to use sequelize for queries and CRUD :
+https://github.com/helabenkhalfallah/node-express-mongoose-sqlize

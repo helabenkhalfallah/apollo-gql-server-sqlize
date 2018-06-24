@@ -35,6 +35,10 @@
     "graphql-tools": "^3.0.2",
     "mongoose": "^5.1.6",
     "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0",
     "winston": "^3.0.0",
     "winston-daily-rotate-file": "^3.2.3"
   },
