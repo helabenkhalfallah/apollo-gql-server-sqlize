@@ -1,5 +1,5 @@
 # apollo-gql-server-sqlize
-Apollo graphql server, graphql, sqlize, postgress
+Apollo graphql server, graphql, mongoose, sequelize, postgress
 
 -------- General Settings ------------
 
