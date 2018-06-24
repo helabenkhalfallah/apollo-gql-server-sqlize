@@ -1,7 +1,7 @@
 # apollo-gql-server-sqlize
 Apollo graphql server, graphql, sqlize, postgress
 
--------- Settings ------------
+-------- General Settings ------------
 
 1. add an index.js file
 
@@ -54,5 +54,25 @@ yarn add babel-cli babel-preset-es2015 babel-preset-stage-0
 
 10. add .env file that will contains all app confs env params
 
+11. customize logger file
+```js
+yarn add morgan winston winston-daily-rotate-file
+```
 
 -------- End Settings ------------
+
+-------- Apollo Server Settings ------------
+
+12. install apollo server 
+```js
+yarn add apollo-server@rc graphql
+```
+
+13. add mongoose
+```js
+yarn add mongoose
+```
+
+
+-------- End Settings ------------
+
