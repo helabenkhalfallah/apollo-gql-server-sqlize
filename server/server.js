@@ -1,4 +1,19 @@
+//express config 
+import { ApolloServer } from 'apollo-server'
 
-// check if env are correctly loaded
-// const portNumber = process.env.SERVER_APP_PORT || 4444
-// console.log(portNumber)
+//app import
+import gqlProvider from '../grapql'
+import AppLogger from '../core/logger/AppLogger'
+
+//mongoose part
+import DBConnect from '../db/DBConnect'
+DBConnect()
+
+// configure server GraphQL schema
+const server = new ApolloServer({ schema: gqlProvider })
+
+// start server
+const portNumber = process.env.GRAPHQL_APP_PORT || 4000
+server.listen(portNumber).then(({ url }) => {
+  AppLogger.info('server started :  ' + url)
+})
