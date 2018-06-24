@@ -68,11 +68,38 @@ yarn add morgan winston winston-daily-rotate-file
 yarn add apollo-server@rc graphql
 ```
 
+-------- End Settings ------------
+
+
+-------- Mongoose Settings ------------
 13. add mongoose
 ```js
 yarn add mongoose
 ```
+-------- End Settings ------------
+
+-------- Postgres Settings ------------
+14. install sequelize http://docs.sequelizejs.com/manual/installation/getting-started.html
+yarn add sequelize yarn add pg pg-hstore
+
+15. configure sequelize
+
+Add .sequelizerc on which you define sequelize path for configuration :
+
+```js
+var path = require('path');
+module.exports = {
+  'config': path.resolve('./db/psql/config', 'config.json'),
+  'migrations-path': path.resolve('./db/psql', 'migrations'),
+  'models-path': path.resolve('./db/psql', 'models'),
+  'seeders-path': path.resolve('./db/psql', 'seeders')
+}
+```
+
+Add new model :
+```js
+node_modules/.bin/sequelize model:create --name UserEntity --attributes "firstName: string, lastName: string, email: string,birthday: date, job: string, created_at : date, updated_at : date"
+```
 
 
 -------- End Settings ------------
-

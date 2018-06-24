@@ -6,7 +6,7 @@ import gqlProvider from '../grapql'
 import AppLogger from '../core/logger/AppLogger'
 
 //mongoose part
-import DBConnect from '../db/DBConnect'
+import DBConnect from '../db/mongo/db/DBConnect'
 DBConnect()
 
 // configure server GraphQL schema

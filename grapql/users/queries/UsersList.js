@@ -1,5 +1,5 @@
 import { GraphQLList } from 'graphql'
-import AppModels from '../../../models/index'
+import AppModels from '../../../db/mongo/models/index'
 import User from '../types/User'
 
 // Query

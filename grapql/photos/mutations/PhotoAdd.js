@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql'
-import AppModels from '../../../models/index'
+import AppModels from '../../../db/mongo/models/index'
 import Photo from '../types/Photo'
 
 //add
